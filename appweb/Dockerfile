@@ -1,0 +1,3 @@
+From php:5.6-apache
+RUN docker-php-ext-install pdo_mysql mysqli mbstring
+COPY ./php.ini /usr/local/etc/php/
