@@ -1,0 +1,4 @@
+**/data/*
+!**/data/html/test.html
+!**/data/html/info.php
+!**/data/html/db.php
