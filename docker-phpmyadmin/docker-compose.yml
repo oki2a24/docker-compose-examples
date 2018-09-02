@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    build: ./db
+    env_file: .env
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+        #- ./db/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 80:80
+    env_file: .env
+    environment:
+      - PMA_ARBITRARY=1
+      - TESTSUITE_PASSWORD=test123
+    depends_on:
+      - db
+volumes:
+    db-data:
